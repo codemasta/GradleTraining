@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "org.flywaydb.flyway" version "6.3.2"
+}
+
+group 'org.compilsoft'
+version '1.1-SNAPSHOT'
+
+sourceSets{
+    main{
+        java{
+            srcDir ''
+        }
+    }
+    test{
+        java{
+            srcDir ''
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task hello{
+    doFirst{
+        println "Hello Gradle First"
+    }
+
+    doLast{
+        println "Hello Gradle Last"
+    }
+}
+
+task world {
+
+    dependsOn hello
+
+    doLast{
+        println(" , welcome to my world")
+    }
+}
